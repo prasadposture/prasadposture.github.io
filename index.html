@@ -3,86 +3,101 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Name - Data Scientist | Machine Learning | Astronomy</title>
+    <title>[Your Name] - Portfolio</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <!-- Navigation Bar -->
-    <nav>
-        <ul>
-            <li><a href="#about">About Me</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#blog">Blog</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
+    <header>
+        <nav>
+            <div class="logo">[Your Name]</div>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#blog">Blog</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero">
+        <h1>Hi, I'm [Your Name]</h1>
+        <h2>Data Scientist | Machine Learning Enthusiast | Astronomer</h2>
+        <a href="#projects" class="btn">View Projects</a>
+    </section>
 
     <!-- About Me Section -->
     <section id="about">
-        <h1>About Me</h1>
-        <img src="profile.jpg" alt="Your Photo">
-        <p>Hello, I am [Your Name], an MSc student in Astronomy with a passion for data science, machine learning, and deep learning. I specialize in working with 3D data cubes, deep learning architectures like UNet and Vision Transformers, and applying them to astronomy problems. My goal is to apply these skills in industry to solve complex real-world challenges.</p>
+        <h2>About Me</h2>
+        <div class="about-content">
+            <img src="profile.jpg" alt="Profile Photo">
+            <p>
+                I'm an MSc student in Astronomy specializing in data science, machine learning, and deep learning. I love exploring 3D data cubes, building deep learning architectures, and uncovering insights from complex datasets.
+            </p>
+        </div>
     </section>
 
     <!-- Skills Section -->
     <section id="skills">
-        <h1>Skills</h1>
-        <ul>
-            <li>Python, PyTorch, TensorFlow</li>
-            <li>Machine Learning, Deep Learning</li>
-            <li>Data Visualization (Matplotlib, PowerBI, Streamlit)</li>
-            <li>Astronomy and Data Analysis</li>
-            <li>Cloud Computing (Kaggle GPUs)</li>
-            <li>SQL, Git, Version Control</li>
-        </ul>
+        <h2>Skills</h2>
+        <div class="skills-grid">
+            <div class="skill">Python</div>
+            <div class="skill">PyTorch</div>
+            <div class="skill">TensorFlow</div>
+            <div class="skill">Machine Learning</div>
+            <div class="skill">Deep Learning</div>
+            <div class="skill">Data Visualization</div>
+            <div class="skill">PowerBI</div>
+            <div class="skill">Streamlit</div>
+        </div>
     </section>
 
     <!-- Projects Section -->
     <section id="projects">
-        <h1>Projects</h1>
-        <div class="project">
-            <h2>House Price Prediction</h2>
-            <p>A machine learning model for predicting house prices based on various features.</p>
-            <a href="https://github.com/yourusername/house-price-prediction" target="_blank">View Project</a>
+        <h2>Projects</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <h3>House Price Prediction</h3>
+                <p>Predicting house prices using regression models and feature engineering.</p>
+                <a href="https://github.com/yourusername/house-price-prediction" target="_blank">View Project</a>
+            </div>
+            <div class="project-card">
+                <h3>Financial Distress Prediction</h3>
+                <p>Machine learning model to predict financial distress based on key indicators.</p>
+                <a href="https://github.com/yourusername/financial-distress" target="_blank">View Project</a>
+            </div>
+            <div class="project-card">
+                <h3>IPL Data Analysis</h3>
+                <p>Interactive PowerBI dashboard analyzing IPL match data (2008–2020).</p>
+                <a href="https://github.com/yourusername/ipl-analysis" target="_blank">View Project</a>
+            </div>
         </div>
-        <div class="project">
-            <h2>Financial Distress Prediction</h2>
-            <p>Predicting financial distress using machine learning algorithms.</p>
-            <a href="https://github.com/yourusername/financial-distress" target="_blank">View Project</a>
-        </div>
-        <!-- Add other projects similarly -->
     </section>
 
-    <!-- Blog Section (Optional) -->
+    <!-- Blog Section -->
     <section id="blog">
-        <h1>Blog</h1>
-        <p>Check out my latest blog posts where I dive deep into my projects and share insights on data science and machine learning in astronomy.</p>
-        <!-- Add blog post links here -->
+        <h2>Blog</h2>
+        <p>Sharing insights on data science, astronomy, and machine learning.</p>
+        <a href="https://medium.com/@yourusername" target="_blank" class="btn">Read My Blog</a>
     </section>
 
     <!-- Contact Section -->
     <section id="contact">
-        <h1>Contact Me</h1>
-        <form action="submit_form.php" method="POST">
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required>
-
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
-
-            <label for="message">Message:</label>
-            <textarea id="message" name="message" required></textarea>
-
+        <h2>Contact Me</h2>
+        <form>
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <textarea placeholder="Your Message" required></textarea>
             <button type="submit">Send Message</button>
         </form>
-        <p>Connect with me on <a href="https://www.linkedin.com/in/yourprofile" target="_blank">LinkedIn</a></p>
-        <p>GitHub: <a href="https://github.com/yourusername" target="_blank">yourusername</a></p>
+        <p>Connect on <a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn</a> | Check out my <a href="https://github.com/yourusername" target="_blank">GitHub</a></p>
     </section>
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2025 [Your Name]. All rights reserved.</p>
+        <p>&copy; 2025 [Your Name]. All Rights Reserved.</p>
     </footer>
 </body>
 </html>
