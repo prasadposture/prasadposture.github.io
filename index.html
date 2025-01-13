@@ -1,105 +1,219 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prasad Posture | Portfolio</title>
+    <title>Prasad Rajesh Posture | Portfolio</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
+            line-height: 1.6;
         }
-        .center {
-            text-align: center;
-            margin-top: 20px;
-        }
-        .badge img {
-            vertical-align: middle;
-            margin: 0 5px;
-        }
-        h3 {
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 1rem 0;
             text-align: center;
         }
-        h2 {
-            margin-top: 30px;
+
+        header h1 {
+            margin: 0;
         }
-        .section {
-            margin: 20px;
-            padding: 15px;
-            border-radius: 8px;
+
+        header p {
+            margin: 0;
         }
-        .about {
-            background-color: #FFFAE6;
+
+        nav {
+            background-color: #444;
+            display: flex;
+            justify-content: center;
+            padding: 0.5rem 0;
         }
-        .skills {
-            background-color: #E6F7FF;
+
+        nav a {
+            color: #fff;
+            margin: 0 1rem;
+            text-decoration: none;
         }
-        .courses {
-            background-color: #E6FFE6;
+
+        nav a:hover {
+            text-decoration: underline;
         }
-        .achievements {
-            background-color: #FFE6E6;
+
+        section {
+            padding: 2rem;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1rem 0;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .project {
+            margin-bottom: 1.5rem;
+        }
+
+        .project a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        .project a:hover {
+            text-decoration: underline;
+        }
+
+        .experience {
+            margin-bottom: 1.5rem;
+        }
+
+        .education-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+
+        .education-table th, .education-table td {
+            border: 1px solid #ddd;
+            padding: 0.5rem;
+            text-align: left;
+        }
+
+        .education-table th {
+            background-color: #f4f4f4;
+        }
+
+        .contact {
+            margin-top: 1.5rem;
         }
     </style>
 </head>
+
 <body>
-    <!-- Social Links -->
-    <div class='center'>
-<a href="https://www.linkedin.com/in/prasad-posture-6a3a77215/" target="_blank" class="badge">
-    <img src="https://img.shields.io/badge/-Prasad_Posture-blue?style=flat-square&logo=Linkedin&logoColor=white" alt="LinkedIn" height="20" width="100">
-</a>
-<a href="https://github.com/prasadposture" target="_blank" class="badge">
-    <img src="https://img.shields.io/badge/-prasadposture-black?style=flat-square&logo=github&logoColor=white" alt="GitHub" height="20" width="100">
-</a>
-<a href="https://www.kaggle.com/prasadposture121" target="_blank" class="badge">
-    <img src="https://img.shields.io/badge/-prasadposture121-blue?style=flat-square&logo=Kaggle&logoColor=white" alt="Kaggle" height="20" width="100">
-</a>
-    </div>
+    <header>
+        <h1>Prasad Rajesh Posture</h1>
+        <p>Aspiring Data Scientist | MSc Astronomy Student | Researcher</p>
+    </header>
 
-    <h3>"Curiosity Is The Essence Of Our Existence."</h3>
+    <nav>
+        <a href="#education">Education</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+    </nav>
 
-    <!-- About Me Section -->
-    <div class="section about">
-        <h2>About Me</h2>
-        <p>I have a Bachelor's degree in Mathematics with a focus on Data Analytics. During my studies, I explored both theoretical and practical aspects of mathematics and became proficient in programming languages like Python and R, essential for data analysis.</p>
-        <p>In my three-year undergraduate program, I built a strong foundation in mathematical principles, including calculus, linear and abstract algebra, real and complex analysis, and metric spaces. This background enhanced my analytical skills and prepared me for advanced data analysis.</p>
-        <p>Additionally, I spent two years studying data analytics, covering topics such as statistics, probability theory, database management, machine learning algorithms, and introductory artificial intelligence. This experience sparked my passion for data analysis, as I enjoyed uncovering insights and creating predictive models.</p>
-        <p>I am in the second year of my Master's degree in Astronomy at the Indian Institute of Technology (IIT) Indore. My research focuses on "Emulating 21cm signal using transformers," which integrates astronomy and data science. I aim to use my expertise in these fields to contribute to data-driven astronomy and advance our understanding of the cosmos through data analysis and modeling.</p>
-    </div>
+    <section id="education">
+        <h2 class="section-title">Education</h2>
+        <table class="education-table">
+            <thead>
+                <tr>
+                    <th>Degree/Certificate</th>
+                    <th>Institute/Board</th>
+                    <th>CGPA/Percentage</th>
+                    <th>Year</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>M.Sc. Astronomy</td>
+                    <td>Indian Institute of Technology Indore</td>
+                    <td>9.32 (Current)</td>
+                    <td>2023-Present</td>
+                </tr>
+                <tr>
+                    <td>B.Sc. Mathematics</td>
+                    <td>Jai Hind College, Mumbai</td>
+                    <td>9.75</td>
+                    <td>2022</td>
+                </tr>
+                <tr>
+                    <td>HSC (PCMB)</td>
+                    <td>Jai Hind College, Mumbai</td>
+                    <td>75.23%</td>
+                    <td>2019</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
 
-    <!-- Skills Section -->
-    <div class="section skills">
-        <h2>Skills</h2>
-        <b>Tech Skills :</b> Python, R, SQL, Tableau<br>
-        <b>Python Libraries:</b> Pandas, NumPy, Matplotlib, Seaborn, Streamlit, Plotly, Scikit-Learn<br>
-        <b>Data Skills:</b> Data Cleaning, Data Visualization, Exploratory Data Analysis, Predictive Analysis (MLA), Web Scraping<br>
-        <b>MS Office :</b> MS-Word, MS-Excel, MS-PowerPoint, MS-Power BI<br>
-        <b>Maths Skills:</b> Probability, Statistics, Calculus, Algebra, Real and Complex Analysis, Mathematical Methods<br>
-        <b>Soft Skills:</b> Presentation Skills, Communication Skills, Time Management, Problem Solving, Critical Thinking, Content Writing
-    </div>
+    <section id="experience">
+        <h2 class="section-title">Experience</h2>
+        <div class="experience">
+            <h3>Cosmology with Statistical Inference</h3>
+            <p><strong>Role:</strong> Graduate Researcher</p>
+            <p><strong>Institute:</strong> IIT Indore</p>
+            <p><strong>Duration:</strong> Jun. 2024 - Present</p>
+            <ul>
+                <li>Exploring newly introduced methods/frameworks/tools that will accelerate the research process.</li>
+                <li>Developing an emulator for 21cm signal using vision transformer to overcome time-consuming simulations.</li>
+                <li>Involved in weekly discussions about the latest developments in cosmology and presenting research papers.</li>
+            </ul>
+        </div>
+        <div class="experience">
+            <h3>MSDSM Program</h3>
+            <p><strong>Role:</strong> Tutor</p>
+            <p><strong>Institute:</strong> IIT Indore</p>
+            <p><strong>Duration:</strong> Dec. 2024</p>
+            <ul>
+                <li>Delivered a lecture on Vision Transformers as part of the 'Advanced Bayesian Inference' course.</li>
+                <li>Conducted a tutorial on Hamiltonian Monte Carlo, developing HMC code from scratch.</li>
+                <li>Involved in doubt-solving sessions to ensure a clear understanding of topics covered.</li>
+            </ul>
+        </div>
+    </section>
 
-    <!-- Courses Section -->
-    <div class="section courses">
-        <h2>Courses</h2>
-        <ul>
-            <li><a href="https://jovian.com/certificate/MFQTQMJYGI">Machine Learning with Python: from Zero to GBMs</a> by Jovian.ai</li>
-            <li><a href="https://jovian.com/certificate/MFQTOOJVGI">Data Analytics with Python: from Zero to Pandas</a> by Jovian.ai</li>
-            <li><a href="https://drive.google.com/file/d/1oe2VOHz4Jp9FrKoiiKCtJPQqB9U8uOWm/view">Artificial Intelligence</a> by MyCaptain</li>
-            <li><a href="https://drive.google.com/file/d/1l6aKdzuxLXTd1IvpoQirhfJGbWHhMh4Y/view">Data Analytics with Python</a> by MyCaptain</li>
-            <li><a href="https://drive.google.com/file/d/1W5hc0f0CWodbbIwdvwBfiBR3Cwu__-QY/view">Data Analytics with Excel </a>by Great Learning</li>
-            <li><a href="https://www.kaggle.com/learn/certification/prasadposture121/intro-to-sql">Introduction to SQL</a> by Kaggle</li>
-            <li><a href="https://drive.google.com/file/d/1OeJaKndjOAfAvBMx4nM_MGYrwjb9yTKq/view">Power BI for Beginners</a>by Simplilearn</li>
-        </ul>
-    </div>
+    <section id="projects">
+        <h2 class="section-title">Projects</h2>
+        <div class="project">
+            <h3>Emulation of HI 21-cm Signal from the Epoch of Reionization using Vision Transformers</h3>
+            <p><strong>Institute:</strong> IIT Indore</p>
+            <p><strong>Duration:</strong> Jun. 2024 - Present</p>
+            <p><a href="https://github.com/prasadposture/CosmoViT">GitHub Repository</a></p>
+            <ul>
+                <li>Running N-body simulations to generate training data for different reionization scenarios.</li>
+                <li>Developing an emulator to predict 3D fields of 21cm signal using reionization parameters and halo-dark matter fields.</li>
+                <li>Learning new tools/frameworks to improve emulator accuracy and efficiency.</li>
+            </ul>
+        </div>
+        <div class="project">
+            <h3>Water Potability using Machine Learning Algorithms</h3>
+            <p><strong>Institute:</strong> Jai Hind College, Mumbai</p>
+            <p><strong>Duration:</strong> Aug. 2021 - Nov. 2021</p>
+            <p><a href="https://github.com/prasadposture/Water-Potability-Project">GitHub Repository</a></p>
+            <ul>
+                <li>Performed exploratory data analysis using pandas, numpy, matplotlib, and seaborn.</li>
+                <li>Data preprocessing and predictive modeling using scikit-learn.</li>
+                <li>Developed an interactive and user-friendly web application using Streamlit and joblib.</li>
+            </ul>
+        </div>
+    </section>
 
-    <!-- Achievements Section -->
-    <div class="section achievements">
-        <h2>Achievements</h2>
-        <b>Been on the achiever's list of Jai Hind College, Mumbai<br>
-        Achieved the highest rank of 708 among 290k+ Kaggle notebook experts<br>
-        AIR 216 in IIT JAM Physics and joined M.Sc.Astronomy in IIT Indore</b>
-    </div>
+    <section id="contact">
+        <h2 class="section-title">Contact</h2>
+        <p>Email: <a href="mailto:prasadposture121@gmail.com">prasadposture121@gmail.com</a></p>
+        <p>Email: <a href="mailto:msc2303121013@iiti.ac.in">msc2303121013@iiti.ac.in</a></p>
+        <p>Phone: +91-8879291547</p>
+        <p>LinkedIn: <a href="https://www.linkedin.com/in/prasad-posture/">Prasad Posture</a></p>
+        <p>GitHub: <a href="https://github.com/prasadposture">Prasad Posture</a></p>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Prasad Rajesh Posture. All Rights Reserved.</p>
+    </footer>
 </body>
+
 </html>
-<!--try this: https://chatgpt.com/share/67791550-2560-800d-b027-9cd77576a726 -->
