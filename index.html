@@ -4,225 +4,1070 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prasad Rajesh Posture | Portfolio</title>
+    <title>Prasad Posture | Researcher & ML Engineer</title>
     <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --bg:           #0d1117;
+            --surface:      #161b22;
+            --surface2:     #21262d;
+            --border:       #30363d;
+            --text:         #e6edf3;
+            --muted:        #8b949e;
+            --accent:       #a78bfa;
+            --accent2:      #58a6ff;
+            --accent-glow:  rgba(167, 139, 250, 0.12);
+        }
+
+        html { scroll-behavior: smooth; }
+
         body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg);
+            color: var(--text);
             line-height: 1.6;
         }
 
-        header {
-            background-color: #333;
-            color: #fff;
-            padding: 1rem 0;
-            text-align: center;
-        }
+        a { color: var(--accent2); text-decoration: none; }
+        a:hover { text-decoration: underline; }
 
-        header h1 {
-            margin: 0;
-        }
-
-        header p {
-            margin: 0;
-        }
-
+        /* ── Nav ── */
         nav {
-            background-color: #444;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(13, 17, 23, 0.90);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            padding: 0 2rem;
             display: flex;
-            justify-content: center;
-            padding: 0.5rem 0;
+            align-items: center;
+            justify-content: space-between;
+            height: 56px;
         }
 
-        nav a {
-            color: #fff;
-            margin: 0 1rem;
-            text-decoration: none;
+        .nav-logo {
+            font-weight: 700;
+            font-size: 1.05rem;
+            color: var(--text);
+            letter-spacing: -0.02em;
         }
 
-        nav a:hover {
-            text-decoration: underline;
+        .nav-logo span { color: var(--accent); }
+
+        .nav-links {
+            display: flex;
+            gap: 1.75rem;
+            list-style: none;
         }
 
-        section {
-            padding: 2rem;
+        .nav-links a {
+            color: var(--muted);
+            font-size: 0.875rem;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover { color: var(--text); text-decoration: none; }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 4px;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 22px;
+            height: 2px;
+            background: var(--text);
+            border-radius: 2px;
+        }
+
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 56px;
+            left: 0;
+            right: 0;
+            background: var(--surface);
+            border-bottom: 1px solid var(--border);
+            padding: 0.75rem 2rem;
+            z-index: 99;
+        }
+
+        .mobile-menu.open { display: block; }
+
+        .mobile-menu a {
+            display: block;
+            color: var(--muted);
+            padding: 0.6rem 0;
+            border-bottom: 1px solid var(--border);
+            font-size: 0.875rem;
+        }
+
+        .mobile-menu a:last-child { border-bottom: none; }
+
+        /* ── Layout ── */
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        section { padding: 5rem 0; }
+
+        .section-label {
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 0.4rem;
         }
 
         .section-title {
-            font-size: 1.5rem;
+            font-size: 1.9rem;
+            font-weight: 700;
+            color: var(--text);
+            letter-spacing: -0.02em;
+            margin-bottom: 0.75rem;
+        }
+
+        .section-desc {
+            color: var(--muted);
+            max-width: 580px;
+            margin-bottom: 2.5rem;
+        }
+
+        .divider { height: 1px; background: var(--border); }
+
+        /* ── Hero ── */
+        #hero {
+            min-height: calc(100vh - 56px);
+            display: flex;
+            align-items: center;
+            padding: 4rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #hero::before {
+            content: '';
+            position: absolute;
+            top: -20%;
+            left: -15%;
+            width: 650px;
+            height: 650px;
+            background: radial-gradient(circle, rgba(167,139,250,0.07) 0%, transparent 65%);
+            pointer-events: none;
+        }
+
+        #hero::after {
+            content: '';
+            position: absolute;
+            bottom: -20%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(88,166,255,0.05) 0%, transparent 65%);
+            pointer-events: none;
+        }
+
+        .hero-content { position: relative; z-index: 1; }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--accent-glow);
+            border: 1px solid rgba(167,139,250,0.3);
+            border-radius: 100px;
+            padding: 0.3rem 0.9rem;
+            font-size: 0.8rem;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-badge::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--accent);
+            animation: blink 2s infinite;
+            flex-shrink: 0;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50%       { opacity: 0.35; }
+        }
+
+        .hero-name {
+            font-size: clamp(2.6rem, 6vw, 4rem);
+            font-weight: 800;
+            line-height: 1.08;
+            letter-spacing: -0.03em;
+            color: var(--text);
             margin-bottom: 1rem;
         }
 
-        footer {
-            background-color: #333;
-            color: #fff;
-            text-align: center;
-            padding: 1rem 0;
+        .hero-name span { color: var(--accent); }
+
+        .hero-tagline {
+            font-size: clamp(0.95rem, 2vw, 1.15rem);
+            color: var(--muted);
+            margin-bottom: 1.25rem;
+        }
+
+        .hero-tagline strong { color: var(--accent2); font-weight: 500; }
+
+        .hero-desc {
+            color: var(--muted);
+            max-width: 520px;
+            margin-bottom: 2rem;
+            line-height: 1.75;
+        }
+
+        .hero-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-bottom: 2.25rem;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: #0d1117;
+            padding: 0.6rem 1.35rem;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 0.875rem;
+            transition: opacity 0.2s, transform 0.15s;
+        }
+
+        .btn-primary:hover { opacity: 0.82; text-decoration: none; transform: translateY(-1px); }
+
+        .btn-secondary {
+            background: var(--surface2);
+            color: var(--text);
+            padding: 0.6rem 1.35rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.875rem;
+            border: 1px solid var(--border);
+            transition: border-color 0.2s, transform 0.15s;
+        }
+
+        .btn-secondary:hover { border-color: var(--accent); text-decoration: none; transform: translateY(-1px); }
+
+        .hero-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.45rem;
+        }
+
+        .tag {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            color: var(--muted);
+            padding: 0.25rem 0.7rem;
+            border-radius: 100px;
+            font-size: 0.775rem;
+        }
+
+        /* ── About ── */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 3fr 2fr;
+            gap: 2.5rem;
+            align-items: start;
+        }
+
+        .about-text p {
+            color: var(--muted);
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        .about-highlights { display: flex; flex-direction: column; gap: 0.85rem; }
+
+        .highlight-item {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 0.9rem 1.1rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            transition: border-color 0.2s;
+        }
+
+        .highlight-item:hover { border-color: rgba(167,139,250,0.4); }
+
+        .highlight-icon { font-size: 1.2rem; flex-shrink: 0; line-height: 1.4; }
+
+        .highlight-item h4 { font-size: 0.875rem; font-weight: 600; color: var(--text); margin-bottom: 0.1rem; }
+
+        .highlight-item p { font-size: 0.8rem; color: var(--muted); }
+
+        /* ── Projects ── */
+        .projects-grid { display: grid; gap: 1.25rem; }
+
+        .project-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.75rem;
+            transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+        }
+
+        .project-card:hover {
+            border-color: rgba(167,139,250,0.5);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 32px rgba(167,139,250,0.07);
+        }
+
+        .project-card.flagship {
+            border-color: rgba(167,139,250,0.25);
+            background: linear-gradient(140deg, var(--surface) 60%, rgba(167,139,250,0.04) 100%);
+        }
+
+        .project-header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 1rem;
+            margin-bottom: 0.85rem;
+        }
+
+        .project-badge {
+            background: var(--accent-glow);
+            border: 1px solid rgba(167,139,250,0.3);
+            color: var(--accent);
+            font-size: 0.68rem;
+            font-weight: 700;
+            padding: 0.2rem 0.65rem;
+            border-radius: 100px;
+            white-space: nowrap;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            flex-shrink: 0;
+        }
+
+        .project-title { font-size: 1.08rem; font-weight: 700; color: var(--text); margin-bottom: 0.2rem; }
+
+        .project-meta { font-size: 0.8rem; color: var(--muted); }
+
+        .project-desc { color: var(--muted); font-size: 0.9rem; line-height: 1.7; margin-bottom: 1rem; }
+
+        .project-points { list-style: none; margin-bottom: 1.15rem; }
+
+        .project-points li {
+            font-size: 0.875rem;
+            color: var(--muted);
+            padding: 0.22rem 0 0.22rem 1.1rem;
             position: relative;
-            bottom: 0;
-            width: 100%;
         }
 
-        .project {
-            margin-bottom: 1.5rem;
+        .project-points li::before { content: '▸'; position: absolute; left: 0; color: var(--accent); }
+
+        .tech-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.2rem; }
+
+        .tech-tag {
+            background: var(--surface2);
+            border: 1px solid var(--border);
+            color: var(--accent2);
+            font-size: 0.74rem;
+            padding: 0.2rem 0.6rem;
+            border-radius: 6px;
+            font-family: 'Courier New', monospace;
         }
 
-        .project a {
-            color: #0066cc;
-            text-decoration: none;
+        .project-links { display: flex; gap: 0.65rem; flex-wrap: wrap; }
+
+        .link-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            font-size: 0.8rem;
+            color: var(--muted);
+            border: 1px solid var(--border);
+            padding: 0.3rem 0.75rem;
+            border-radius: 6px;
+            transition: color 0.2s, border-color 0.2s;
         }
 
-        .project a:hover {
-            text-decoration: underline;
+        .link-btn:hover { color: var(--accent); border-color: var(--accent); text-decoration: none; }
+
+        /* ── Publications ── */
+        .pub-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-left: 3px solid var(--accent);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: transform 0.2s, box-shadow 0.2s;
         }
 
-        .experience {
-            margin-bottom: 1.5rem;
+        .pub-card:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(167,139,250,0.07); }
+
+        .pub-journal {
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
         }
 
-        .education-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 1rem;
+        .pub-title {
+            font-size: 1.12rem;
+            font-weight: 700;
+            color: var(--text);
+            line-height: 1.45;
+            margin-bottom: 0.5rem;
         }
 
-        .education-table th, .education-table td {
-            border: 1px solid #ddd;
-            padding: 0.5rem;
-            text-align: left;
+        .pub-authors {
+            font-size: 0.875rem;
+            color: var(--muted);
+            margin-bottom: 1rem;
         }
 
-        .education-table th {
-            background-color: #f4f4f4;
+        .pub-authors strong { color: var(--accent2); font-weight: 600; }
+
+        .pub-abstract {
+            font-size: 0.875rem;
+            color: var(--muted);
+            line-height: 1.75;
+            margin-bottom: 1.1rem;
+            padding: 1rem 1.15rem;
+            background: var(--surface2);
+            border-radius: 8px;
+            border-left: 2px solid var(--border);
         }
 
-        .contact {
-            margin-top: 1.5rem;
+        .pub-meta { font-size: 0.8rem; color: var(--muted); margin-bottom: 1.1rem; }
+
+        /* ── Skills ── */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+            gap: 1.1rem;
+        }
+
+        .skill-group {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 1.1rem 1.25rem;
+            transition: border-color 0.2s;
+        }
+
+        .skill-group:hover { border-color: rgba(167,139,250,0.4); }
+
+        .skill-group-title {
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 0.8rem;
+        }
+
+        .skill-list { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+
+        .skill-pill {
+            background: var(--surface2);
+            border: 1px solid var(--border);
+            color: var(--muted);
+            font-size: 0.775rem;
+            padding: 0.22rem 0.6rem;
+            border-radius: 6px;
+        }
+
+        /* ── Timeline ── */
+        .timeline { position: relative; padding-left: 1.6rem; }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 10px;
+            bottom: 10px;
+            width: 1px;
+            background: var(--border);
+        }
+
+        .timeline-item { position: relative; margin-bottom: 2.25rem; }
+
+        .timeline-item:last-child { margin-bottom: 0; }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -1.6rem;
+            top: 8px;
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+            background: var(--accent);
+            border: 2px solid var(--bg);
+            transform: translateX(-4px);
+        }
+
+        .timeline-header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 0.2rem;
+        }
+
+        .timeline-title { font-size: 1rem; font-weight: 700; color: var(--text); }
+
+        .timeline-date {
+            font-size: 0.775rem;
+            color: var(--accent);
+            background: var(--accent-glow);
+            border: 1px solid rgba(167,139,250,0.2);
+            padding: 0.15rem 0.65rem;
+            border-radius: 100px;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        .timeline-role { font-size: 0.875rem; color: var(--accent2); margin-bottom: 0.7rem; }
+
+        .timeline-points { list-style: none; }
+
+        .timeline-points li {
+            font-size: 0.875rem;
+            color: var(--muted);
+            padding: 0.2rem 0 0.2rem 1.1rem;
+            position: relative;
+        }
+
+        .timeline-points li::before { content: '▸'; position: absolute; left: 0; color: var(--accent); }
+
+        /* ── Education ── */
+        .edu-grid { display: grid; gap: 0.85rem; }
+
+        .edu-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 1.1rem 1.4rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            flex-wrap: wrap;
+            transition: border-color 0.2s;
+        }
+
+        .edu-card:hover { border-color: rgba(167,139,250,0.4); }
+
+        .edu-degree { font-size: 0.95rem; font-weight: 700; color: var(--text); }
+
+        .edu-institute { font-size: 0.8rem; color: var(--muted); margin-top: 0.15rem; }
+
+        .edu-meta { text-align: right; flex-shrink: 0; }
+
+        .edu-score { font-size: 0.9rem; font-weight: 700; color: var(--accent); }
+
+        .edu-year { font-size: 0.775rem; color: var(--muted); margin-top: 0.1rem; }
+
+        /* ── Contact ── */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.85rem;
+        }
+
+        .contact-link {
+            display: flex;
+            align-items: center;
+            gap: 0.85rem;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 1rem 1.25rem;
+            color: var(--text);
+            transition: border-color 0.2s, transform 0.15s;
+        }
+
+        .contact-link:hover { border-color: var(--accent); transform: translateY(-2px); text-decoration: none; }
+
+        .contact-icon { font-size: 1.15rem; flex-shrink: 0; width: 1.5rem; text-align: center; }
+
+        .contact-label { font-size: 0.72rem; color: var(--muted); margin-bottom: 0.1rem; }
+
+        .contact-value { font-size: 0.875rem; font-weight: 600; color: var(--text); }
+
+        /* ── Footer ── */
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 2rem;
+            text-align: center;
+            font-size: 0.825rem;
+            color: var(--muted);
+        }
+
+        /* ── Responsive ── */
+        @media (max-width: 768px) {
+            .nav-links  { display: none; }
+            .hamburger  { display: flex; }
+            .about-grid { grid-template-columns: 1fr; }
+            .contact-grid { grid-template-columns: 1fr; }
+            section { padding: 3.5rem 0; }
+        }
+
+        @media (max-width: 480px) {
+            .container      { padding: 0 1.25rem; }
+            .skills-grid    { grid-template-columns: 1fr 1fr; }
+            .hero-name      { font-size: 2.3rem; }
+            .section-title  { font-size: 1.6rem; }
         }
     </style>
 </head>
 
 <body>
-    <header>
-        <h1>Prasad Rajesh Posture</h1>
-        <p>Aspiring Data Scientist | MSc Astronomy Student | Researcher</p>
-    </header>
 
+    <!-- ── Nav ── -->
     <nav>
-        <a href="#education">Education</a>
-        <a href="#experience">Experience</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
+        <div class="nav-logo">Prasad<span>.</span></div>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#publications">Publications</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="hamburger" onclick="document.getElementById('mobileMenu').classList.toggle('open')">
+            <span></span><span></span><span></span>
+        </div>
     </nav>
 
-    <section id="education">
-        <h2 class="section-title">Education</h2>
-        <table class="education-table">
-            <thead>
-                <tr>
-                    <th>Degree/Certificate</th>
-                    <th>Institute/Board</th>
-                    <th>CGPA/Percentage</th>
-                    <th>Year</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>M.Sc. Astronomy</td>
-                    <td>Indian Institute of Technology Indore</td>
-                    <td>9.32 (Current)</td>
-                    <td>2023-Present</td>
-                </tr>
-                <tr>
-                    <td>B.Sc. Mathematics</td>
-                    <td>Jai Hind College, Mumbai</td>
-                    <td>9.75</td>
-                    <td>2022</td>
-                </tr>
-                <tr>
-                    <td>HSC (PCMB)</td>
-                    <td>Jai Hind College, Mumbai</td>
-                    <td>75.23%</td>
-                    <td>2019</td>
-                </tr>
-            </tbody>
-        </table>
-    </section>
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="#about"        onclick="this.parentElement.classList.remove('open')">About</a>
+        <a href="#projects"     onclick="this.parentElement.classList.remove('open')">Projects</a>
+        <a href="#publications" onclick="this.parentElement.classList.remove('open')">Publications</a>
+        <a href="#skills"       onclick="this.parentElement.classList.remove('open')">Skills</a>
+        <a href="#experience"   onclick="this.parentElement.classList.remove('open')">Experience</a>
+        <a href="#education"    onclick="this.parentElement.classList.remove('open')">Education</a>
+        <a href="#contact"      onclick="this.parentElement.classList.remove('open')">Contact</a>
+    </div>
 
-    <section id="experience">
-        <h2 class="section-title">Experience</h2>
-        <div class="experience">
-            <h3>Cosmology with Statistical Inference</h3>
-            <p><strong>Role:</strong> Graduate Researcher</p>
-            <p><strong>Institute:</strong> IIT Indore</p>
-            <p><strong>Duration:</strong> Jun. 2024 - Present</p>
-            <ul>
-                <li>Exploring newly introduced methods/frameworks/tools that will accelerate the research process.</li>
-                <li>Developing an emulator for 21cm signal using vision transformer to overcome time-consuming simulations.</li>
-                <li>Involved in weekly discussions about the latest developments in cosmology and presenting research papers.</li>
-            </ul>
-        </div>
-        <div class="experience">
-            <h3>MSDSM Program</h3>
-            <p><strong>Role:</strong> Tutor</p>
-            <p><strong>Institute:</strong> IIT Indore</p>
-            <p><strong>Duration:</strong> Dec. 2024</p>
-            <ul>
-                <li>Delivered a lecture on Vision Transformers as part of the 'Advanced Bayesian Inference' course.</li>
-                <li>Conducted a tutorial on Hamiltonian Monte Carlo, developing HMC code from scratch.</li>
-                <li>Involved in doubt-solving sessions to ensure a clear understanding of topics covered.</li>
-            </ul>
+    <!-- ── Hero ── -->
+    <section id="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">IIT Indore &nbsp;·&nbsp; Published Researcher</div>
+                <h1 class="hero-name">Prasad<br><span>Posture</span></h1>
+                <p class="hero-tagline">
+                    MSc Astronomy &nbsp;·&nbsp; <strong>Researcher &amp; ML Engineer</strong> &nbsp;·&nbsp; Scientific Computing
+                </p>
+                <p class="hero-desc">
+                    I build ML models and scientific software at the intersection of cosmology and deep learning —
+                    from emulating 21-cm signals with Vision Transformers to Bayesian parameter inference.
+                    Currently pursuing MSc Astronomy at IIT Indore (CGPA 9.32) with a paper published in JCAP.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#projects"     class="btn-primary">View Projects</a>
+                    <a href="#publications" class="btn-secondary">Publications</a>
+                    <a href="#contact"      class="btn-secondary">Contact Me</a>
+                </div>
+                <div class="hero-tags">
+                    <span class="tag">Python</span>
+                    <span class="tag">PyTorch</span>
+                    <span class="tag">Machine Learning</span>
+                    <span class="tag">Vision Transformers</span>
+                    <span class="tag">Bayesian Inference</span>
+                    <span class="tag">Scientific Computing</span>
+                    <span class="tag">IIT Indore</span>
+                    <span class="tag">JCAP · IOP Publishing</span>
+                </div>
+            </div>
         </div>
     </section>
 
+    <div class="divider"></div>
+
+    <!-- ── About ── -->
+    <section id="about">
+        <div class="container">
+            <p class="section-label">About Me</p>
+            <h2 class="section-title">Research meets Machine Learning</h2>
+            <div class="about-grid">
+                <div class="about-text">
+                    <p>
+                        My work sits at the intersection of astrophysics, numerical modeling, and deep learning.
+                        During my Master's at IIT Indore I developed CosmoUiT — a Vision Transformer–UNet hybrid that
+                        emulates 3D 21-cm signal cubes from the epoch of reionization — which was published in the
+                        Journal of Cosmology and Astroparticle Physics (IOP Publishing) in 2026.
+                    </p>
+                    <p>
+                        I have hands-on experience with N-body simulations, MCMC parameter estimation, Hamiltonian
+                        Monte Carlo, and building end-to-end ML pipelines in PyTorch. I also taught Vision Transformers
+                        and HMC to postgraduate students as part of IIT Indore's Advanced Bayesian Inference course.
+                    </p>
+                    <p>
+                        I'm interested in Data Scientist and ML Engineer roles where I can apply rigorous scientific
+                        thinking and probabilistic reasoning to real-world problems.
+                    </p>
+                </div>
+                <div class="about-highlights">
+                    <div class="highlight-item">
+                        <div class="highlight-icon">🎓</div>
+                        <div>
+                            <h4>MSc Astronomy</h4>
+                            <p>IIT Indore &nbsp;·&nbsp; CGPA 9.32</p>
+                        </div>
+                    </div>
+                    <div class="highlight-item">
+                        <div class="highlight-icon">📄</div>
+                        <div>
+                            <h4>Published in JCAP</h4>
+                            <p>IOP Publishing &nbsp;·&nbsp; June 2026</p>
+                        </div>
+                    </div>
+                    <div class="highlight-item">
+                        <div class="highlight-icon">🔭</div>
+                        <div>
+                            <h4>Cosmology Research</h4>
+                            <p>21-cm signal &nbsp;·&nbsp; Epoch of Reionization</p>
+                        </div>
+                    </div>
+                    <div class="highlight-item">
+                        <div class="highlight-icon">🤖</div>
+                        <div>
+                            <h4>Deep Learning</h4>
+                            <p>Vision Transformers &nbsp;·&nbsp; PyTorch</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- ── Projects ── -->
     <section id="projects">
-        <h2 class="section-title">Projects</h2>
-        <div class="project">
-            <h3>Emulation of HI 21-cm Signal from the Epoch of Reionization using Vision Transformers</h3>
-            <p><strong>Institute:</strong> IIT Indore</p>
-            <p><strong>Duration:</strong> Jun. 2024 - Present</p>
-            <p><a href="https://github.com/prasadposture/CosmoViT">GitHub Repository</a></p>
-            <ul>
-                <li>Running N-body simulations to generate training data for different reionization scenarios.</li>
-                <li>Developing an emulator to predict 3D fields of 21cm signal using reionization parameters and halo-dark matter fields.</li>
-                <li>Learning new tools/frameworks to improve emulator accuracy and efficiency.</li>
-            </ul>
-        </div>
-        <div class="project">
-            <h3>Water Potability using Machine Learning Algorithms</h3>
-            <p><strong>Institute:</strong> Jai Hind College, Mumbai</p>
-            <p><strong>Duration:</strong> Aug. 2021 - Nov. 2021</p>
-            <p><a href="https://github.com/prasadposture/Water-Potability-Project">GitHub Repository</a></p>
-            <ul>
-                <li>Performed exploratory data analysis using pandas, numpy, matplotlib, and seaborn.</li>
-                <li>Data preprocessing and predictive modeling using scikit-learn.</li>
-                <li>Developed an interactive and user-friendly web application using Streamlit and joblib.</li>
-            </ul>
+        <div class="container">
+            <p class="section-label">Projects</p>
+            <h2 class="section-title">Featured Work</h2>
+            <p class="section-desc">Research software and ML projects spanning cosmology, scientific computing, and data science.</p>
+
+            <div class="projects-grid">
+
+                <div class="project-card flagship">
+                    <div class="project-header">
+                        <div>
+                            <div class="project-title">CosmoUiT</div>
+                            <div class="project-meta">IIT Indore &nbsp;·&nbsp; Jun 2024 – Jun 2026</div>
+                        </div>
+                        <span class="project-badge">Published</span>
+                    </div>
+                    <p class="project-desc">
+                        A Vision Transformer–UNet hybrid architecture for fast, accurate emulation of 3D 21-cm signal
+                        cubes from the epoch of reionization — eliminating the need for expensive N-body simulations
+                        during inference.
+                    </p>
+                    <ul class="project-points">
+                        <li>Developed a UNet-integrated ViT conditioned on reionization parameters to predict full 3D signal cubes.</li>
+                        <li>Combined transformer self-attention for long-range structure with conv layers for small-scale variations.</li>
+                        <li>Validated via bubble size distributions, power spectra, and morphological feature analysis at multiple scales.</li>
+                        <li>Generated training data from N-body simulations across diverse reionization scenarios.</li>
+                    </ul>
+                    <div class="tech-tags">
+                        <span class="tech-tag">PyTorch</span>
+                        <span class="tech-tag">Vision Transformers</span>
+                        <span class="tech-tag">UNet</span>
+                        <span class="tech-tag">N-body Simulations</span>
+                        <span class="tech-tag">NumPy</span>
+                        <span class="tech-tag">Matplotlib</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/prasadposture/CosmoViT" class="link-btn" target="_blank">GitHub</a>
+                        <a href="https://iopscience.iop.org/article/10.1088/1475-7516/2026/06/011" class="link-btn" target="_blank">↗ Read Paper</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <div>
+                            <div class="project-title">Water Potability Predictor</div>
+                            <div class="project-meta">Jai Hind College &nbsp;·&nbsp; Aug – Nov 2021</div>
+                        </div>
+                    </div>
+                    <p class="project-desc">
+                        End-to-end ML pipeline to classify drinking water safety, with an interactive Streamlit
+                        web application deployed for public use.
+                    </p>
+                    <ul class="project-points">
+                        <li>Exploratory data analysis with pandas, numpy, matplotlib, and seaborn.</li>
+                        <li>Data preprocessing and predictive modeling using scikit-learn.</li>
+                        <li>Built and deployed an interactive user-facing web app with Streamlit and joblib.</li>
+                    </ul>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Scikit-Learn</span>
+                        <span class="tech-tag">Pandas</span>
+                        <span class="tech-tag">Streamlit</span>
+                        <span class="tech-tag">Seaborn</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/prasadposture/Water-Potability-Project" class="link-btn" target="_blank">GitHub</a>
+                    </div>
+                </div>
+
+            </div>
         </div>
     </section>
-    <section class="skills">
-        <div class="section-header">Skills</div>
-        <ul>
-            <li>Programming: Python, SQL</li>
-            <li>Libraries: NumPy, Pandas, Matplotlib, PyTorch</li>
-            <li>Tools: Kaggle GPUs, Streamlit, Power BI</li>
-            <li>Other: Machine Learning, Deep Learning, Vision Transformers</li>
-        </ul>
+
+    <div class="divider"></div>
+
+    <!-- ── Publications ── -->
+    <section id="publications">
+        <div class="container">
+            <p class="section-label">Publications</p>
+            <h2 class="section-title">Research Output</h2>
+
+            <div class="pub-card">
+                <div class="pub-journal">Journal of Cosmology and Astroparticle Physics &nbsp;·&nbsp; IOP Publishing &nbsp;·&nbsp; 2026</div>
+                <div class="pub-title">
+                    CosmoUiT: a vision transformer-UNet hybrid for fast and accurate emulation of 21-cm maps from the epoch of reionization
+                </div>
+                <div class="pub-authors">
+                    <strong>Prasad Rajesh Posture</strong>, Yashrajsinh Mahida, Suman Majumdar, Leon Noble
+                </div>
+                <div class="pub-abstract">
+                    The observation of redshifted 21-cm signals from the intergalactic medium will probe the epoch of
+                    reionization with exceptional precision. Creating multiple simulations to predict this signal is
+                    computationally expensive. CosmoUiT introduces a UNet-integrated vision transformer-based architecture
+                    designed to emulate 3D cubes of 21-cm signals from dark matter density fields and reionization parameters.
+                    The model employs transformer self-attention for long-range dependencies alongside convolutional layers for
+                    small-scale variations, with training conditioned on reionization parameters enabling accurate predictions
+                    across different parameter sets. Validated through statistical comparisons (bubble size distributions,
+                    power spectra) and morphological feature analysis, demonstrating high-accuracy emulation at both large and
+                    small scales.
+                </div>
+                <div class="pub-meta">
+                    DOI: 10.1088/1475-7516/2026/06/011 &nbsp;·&nbsp; Published: 3 June 2026 &nbsp;·&nbsp; Vol. 2026, Issue 06
+                </div>
+                <div class="project-links">
+                    <a href="https://iopscience.iop.org/article/10.1088/1475-7516/2026/06/011" class="link-btn" target="_blank">↗ Read Paper</a>
+                    <a href="https://doi.org/10.1088/1475-7516/2026/06/011" class="link-btn" target="_blank">DOI</a>
+                </div>
+            </div>
+        </div>
     </section>
-    
+
+    <div class="divider"></div>
+
+    <!-- ── Skills ── -->
+    <section id="skills">
+        <div class="container">
+            <p class="section-label">Skills</p>
+            <h2 class="section-title">Technical Stack</h2>
+
+            <div class="skills-grid">
+                <div class="skill-group">
+                    <div class="skill-group-title">Programming</div>
+                    <div class="skill-list">
+                        <span class="skill-pill">Python</span>
+                        <span class="skill-pill">SQL</span>
+                        <span class="skill-pill">Bash</span>
+                    </div>
+                </div>
+                <div class="skill-group">
+                    <div class="skill-group-title">Machine Learning</div>
+                    <div class="skill-list">
+                        <span class="skill-pill">PyTorch</span>
+                        <span class="skill-pill">Scikit-Learn</span>
+                        <span class="skill-pill">Vision Transformers</span>
+                        <span class="skill-pill">CNNs</span>
+                        <span class="skill-pill">UNet</span>
+                    </div>
+                </div>
+                <div class="skill-group">
+                    <div class="skill-group-title">Data Science</div>
+                    <div class="skill-list">
+                        <span class="skill-pill">Pandas</span>
+                        <span class="skill-pill">NumPy</span>
+                        <span class="skill-pill">Statistics</span>
+                        <span class="skill-pill">EDA</span>
+                    </div>
+                </div>
+                <div class="skill-group">
+                    <div class="skill-group-title">Scientific Computing</div>
+                    <div class="skill-list">
+                        <span class="skill-pill">SciPy</span>
+                        <span class="skill-pill">MCMC</span>
+                        <span class="skill-pill">Bayesian Inference</span>
+                        <span class="skill-pill">HMC</span>
+                        <span class="skill-pill">N-body Simulations</span>
+                    </div>
+                </div>
+                <div class="skill-group">
+                    <div class="skill-group-title">Visualization</div>
+                    <div class="skill-list">
+                        <span class="skill-pill">Matplotlib</span>
+                        <span class="skill-pill">Seaborn</span>
+                        <span class="skill-pill">Power BI</span>
+                    </div>
+                </div>
+                <div class="skill-group">
+                    <div class="skill-group-title">Tools &amp; Platforms</div>
+                    <div class="skill-list">
+                        <span class="skill-pill">Streamlit</span>
+                        <span class="skill-pill">Kaggle GPUs</span>
+                        <span class="skill-pill">Git</span>
+                        <span class="skill-pill">Jupyter</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- ── Experience ── -->
+    <section id="experience">
+        <div class="container">
+            <p class="section-label">Experience</p>
+            <h2 class="section-title">Research &amp; Teaching</h2>
+
+            <div class="timeline">
+
+                <div class="timeline-item">
+                    <div class="timeline-header">
+                        <div class="timeline-title">Cosmology with Statistical Inference · IIT Indore</div>
+                        <div class="timeline-date">Jun 2024 – Present</div>
+                    </div>
+                    <div class="timeline-role">Graduate Researcher</div>
+                    <ul class="timeline-points">
+                        <li>Developed CosmoUiT, a Vision Transformer–UNet emulator for 21-cm signals from the Epoch of Reionization, published in JCAP.</li>
+                        <li>Ran N-body simulations to generate training data across diverse reionization parameter sets.</li>
+                        <li>Explored new ML frameworks and tools to accelerate the cosmological research pipeline.</li>
+                        <li>Participated in weekly discussions on the latest developments in cosmology and deep learning.</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-header">
+                        <div class="timeline-title">MSDSM Program · IIT Indore</div>
+                        <div class="timeline-date">Dec 2024</div>
+                    </div>
+                    <div class="timeline-role">Tutor · Advanced Bayesian Inference Course</div>
+                    <ul class="timeline-points">
+                        <li>Delivered a guest lecture on Vision Transformers to postgraduate students.</li>
+                        <li>Conducted a hands-on tutorial on Hamiltonian Monte Carlo, coding HMC from scratch.</li>
+                        <li>Ran doubt-solving sessions to consolidate student understanding of probabilistic methods.</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- ── Education ── -->
+    <section id="education">
+        <div class="container">
+            <p class="section-label">Education</p>
+            <h2 class="section-title">Academic Background</h2>
+
+            <div class="edu-grid">
+                <div class="edu-card">
+                    <div>
+                        <div class="edu-degree">M.Sc. Astronomy</div>
+                        <div class="edu-institute">Indian Institute of Technology Indore</div>
+                    </div>
+                    <div class="edu-meta">
+                        <div class="edu-score">9.32 CGPA</div>
+                        <div class="edu-year">2023 – Present</div>
+                    </div>
+                </div>
+                <div class="edu-card">
+                    <div>
+                        <div class="edu-degree">B.Sc. Mathematics</div>
+                        <div class="edu-institute">Jai Hind College, Mumbai</div>
+                    </div>
+                    <div class="edu-meta">
+                        <div class="edu-score">9.75 CGPA</div>
+                        <div class="edu-year">2022</div>
+                    </div>
+                </div>
+                <div class="edu-card">
+                    <div>
+                        <div class="edu-degree">HSC — Physics, Chemistry, Maths, Biology</div>
+                        <div class="edu-institute">Jai Hind College, Mumbai</div>
+                    </div>
+                    <div class="edu-meta">
+                        <div class="edu-score">75.23%</div>
+                        <div class="edu-year">2019</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- ── Contact ── -->
     <section id="contact">
-        <h2 class="section-title">Contact</h2>
-        <p>Email: <a href="mailto:prasadposture121@gmail.com">prasadposture121@gmail.com</a></p>
-        <p>Email: <a href="mailto:msc2303121013@iiti.ac.in">msc2303121013@iiti.ac.in</a></p>
-        <p>Phone: +91-8879291547</p>
-        <p>LinkedIn: <a href="https://www.linkedin.com/in/prasad-posture/">Prasad Posture</a></p>
-        <p>GitHub: <a href="https://github.com/prasadposture">Prasad Posture</a></p>
+        <div class="container">
+            <p class="section-label">Contact</p>
+            <h2 class="section-title">Get In Touch</h2>
+            <p class="section-desc">Open to Data Scientist, ML Engineer, and research positions. Feel free to reach out.</p>
+
+            <div class="contact-grid">
+                <a href="mailto:prasadposture121@gmail.com" class="contact-link">
+                    <div class="contact-icon">✉</div>
+                    <div>
+                        <div class="contact-label">Personal Email</div>
+                        <div class="contact-value">prasadposture121@gmail.com</div>
+                    </div>
+                </a>
+                <a href="https://www.linkedin.com/in/prasad-posture/" class="contact-link" target="_blank">
+                    <div class="contact-icon">in</div>
+                    <div>
+                        <div class="contact-label">LinkedIn</div>
+                        <div class="contact-value">prasad-posture</div>
+                    </div>
+                </a>
+                <a href="https://github.com/prasadposture" class="contact-link" target="_blank">
+                    <div class="contact-icon">⌥</div>
+                    <div>
+                        <div class="contact-label">GitHub</div>
+                        <div class="contact-value">prasadposture</div>
+                    </div>
+                </a>
+                <a href="mailto:msc2303121013@iiti.ac.in" class="contact-link">
+                    <div class="contact-icon">✉</div>
+                    <div>
+                        <div class="contact-label">Institutional Email</div>
+                        <div class="contact-value">msc2303121013@iiti.ac.in</div>
+                    </div>
+                </a>
+            </div>
+        </div>
     </section>
 
     <footer>
-        <p>&copy; 2025 Prasad Rajesh Posture. All Rights Reserved.</p>
+        <p>© 2026 Prasad Rajesh Posture</p>
     </footer>
-</body>
 
+</body>
 </html>
